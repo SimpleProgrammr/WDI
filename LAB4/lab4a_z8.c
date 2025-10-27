@@ -1,3 +1,5 @@
+//(Dla chętnych) Napisz program, który wypisze tabliczkę mnożenia 1–10 w formie tabeli
+
 #include <stdio.h>
 
 int main(void) {

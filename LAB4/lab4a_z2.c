@@ -1,3 +1,5 @@
+//Oblicz sumę liczb od 1 do 100 i wyświetl wynik
+
 #include <stdio.h>
 
 int main(void) {

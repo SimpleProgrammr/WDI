@@ -1,3 +1,5 @@
+//Wypisz liczby parzyste z zakresu [0, 20] używając pętli while
+
 #include <stdio.h>
 
 int main(void) {

@@ -1,3 +1,5 @@
+//Oblicz średnią arytmetyczną n liczb wprowadzonych przez użytkownika.
+
 #include <stdbool.h>
 #include <stdio.h>
 

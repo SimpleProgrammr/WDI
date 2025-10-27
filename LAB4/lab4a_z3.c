@@ -1,3 +1,5 @@
+//Napisz program obliczający silnię liczby n (wczytanej z klawiatury).
+
 #include <stdio.h>
 
 int main(void) {

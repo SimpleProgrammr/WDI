@@ -1,3 +1,5 @@
+//Narysuj prostokąt z gwiazdek o rozmiarze n×m (użytkownik podaje n i m).
+
 #include <stdio.h>
 
 int main(void) {

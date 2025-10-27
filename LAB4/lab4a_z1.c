@@ -1,3 +1,5 @@
+//Wypisz liczby	od 1 do 10 za pomocą pętli for.
+
 #include <stdio.h>
 
 int main(void) {

@@ -1,3 +1,4 @@
+//Napisz program, który wypisze sumę liczb nieparzystych do n.
 #include <stdio.h>
 
 int main(void) {
