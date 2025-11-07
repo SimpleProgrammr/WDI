@@ -22,4 +22,6 @@ echo "Done!"
 
 echo $DATE >> raport.txt
 
+cat raport.txt
+
 
