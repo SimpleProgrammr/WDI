@@ -19,7 +19,7 @@ int main(int argc, char *argv[]) {
     for (int i = 0; i < strlen(argv[1]); i++) {
         const char ch = argv[1][i];
         if (ch != '0' && ch != '1') {
-            printf("Characters error!");
+            printf("Characters error!\n Character: \'%c\'\n",ch);
             return -1;
         }
 
