@@ -26,6 +26,6 @@ int main(int argc, char *argv[]) {
 
         val += (ch - 48)*pow(2, strlen(argv[1]) - i - 1);
     }
-    printf("%s -> %d\n", argv[1], val);
+    printf("%d\n", val);
 
 }
