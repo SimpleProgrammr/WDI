@@ -3,5 +3,5 @@
 while IFS= read -r line; do
   binval=$(./dec2bin "$line")
   bin2decval=$(./bin2dec "$binval")
-  echo "$binval -> $bin2decval" >> raport.txt
+  echo "$line -> $binval -> $bin2decval" >> raport.txt
 done < numbers.txt

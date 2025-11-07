@@ -31,7 +31,7 @@ int main(int argc, char *argv[]) {
         tab[i] = n%2;
         n /= 2;
     }
-    printf("%d -> %d",n,tab[0]);
+    printf("%d",tab[0]);
     for (int i = 1; i <= size; i++) {
         printf("%d", tab[i]);
     }
