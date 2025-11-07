@@ -1,7 +1,7 @@
-#!/usr/bin/env bash
+#!/bin/bash
 > numbers.txt
 for i in {1..10}; do
-  rand_num=$(RANDOM % 256)
-  echo rand_num
-  echo rand_num >> numbers.txt
+  rand_num=$(shuf -i 1-256 -n 1)
+  echo $rand_num
+  echo $rand_num >> numbers.txt
 done
