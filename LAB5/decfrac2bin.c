@@ -11,7 +11,7 @@ int main(int argc, char *argv[]) {
     }
     }
     else {
-        _atodbl(&n,argv[1]);
+        n = atof(argv[1]);
     }
 if (n == 0) {
             printf("BIN: 0000");
