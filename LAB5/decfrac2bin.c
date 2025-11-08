@@ -39,6 +39,7 @@ if (n == 0) {
         i++;
 
     }
+    printf("\n");
 
     return 0;
 
