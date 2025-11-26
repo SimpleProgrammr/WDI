@@ -26,7 +26,7 @@ int main(void) {
         printf("Long long overflow\n");
         return 0;
     }
-    printf("Silnia: max \t%lld\n"
+    printf("Silnia:\n"
            "Iteracyjna: \t%lld\n"
-           "Rekurencyjna: \t%lld\n",LONG_LONG_MAX,iterVal,recVal);
+           "Rekurencyjna: \t%lld\n",iterVal,recVal);
 }

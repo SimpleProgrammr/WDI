@@ -72,7 +72,11 @@ long long hexToDec(char * hex) {
 int main() {
     char hex[256] = {0};
     printf("Enter hex: ");
-    gets(hex);
+    if (!scanf("%s",hex)) {
+        printf("Invalid input\n");
+        return 0;
+    }
+
 
     bool run = true;
     while (run) {
