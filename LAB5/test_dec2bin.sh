@@ -15,3 +15,4 @@ while IFS= read -r line; do
   result=$(./dec2bin $line)
   "$line -> $result" >> "results_int.txt"
 done < numbers.txt
+
