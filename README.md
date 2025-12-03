@@ -22,3 +22,10 @@
 - [Zadanie 1](LAB6/hexToDec.c)
 - [Zadanie 2](LAB6/factorial.c)
 - [Zadanie 3](LAB6/polinominal.c)
+
+### LAB 7
+- [Zadanie 1](LAB7/log_copy.c)
+- [Zadanie 2](LAB7/stats_text.c)
+- [Zadanie 3](LAB7/filter_text.c)
+- [Zadanie 4](LAB7/stats_bin.c)
+- [Zadanie 5](LAB7/arguments_demo.c)
