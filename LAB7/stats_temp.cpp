@@ -7,11 +7,11 @@ int main() {
     int probes = 0;
     double avgTemp = 0, minTemp=9999999,maxTemp = -9999999;
     while (1) {
-        int temp = 0;
-        fscanf(temps, "%d", &temp);
+        double temp = 0;
+        fscanf(temps, "%lf", &temp);
         if (feof(temps))
             break;
-        printf("%d. %d\n",probes+1, temp);
+        printf("%d. %lf\n",probes+1, temp);
         if (temp < minTemp) minTemp = temp;
         if (temp > maxTemp) maxTemp = temp;
         probes++;
