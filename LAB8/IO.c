@@ -1,7 +1,7 @@
 #include <stdio.h>
-#include <string.h>
 
 extern void ERROR(char *msg, int code);
+extern void PostErrorMsg(char *msg);
 
 void clearBuffor() {
     fflush(stdin);
@@ -23,7 +23,7 @@ int getPackageID() {
     return packageID;
 }
 
-double getPackegeWeight() {
+double getPackageWeight() {
     printf("Enter package weight(Kg): ");
     double packageWeight = 0;
     scanf("%lf%*c",&packageWeight);
@@ -32,7 +32,7 @@ double getPackegeWeight() {
     return packageWeight;
 }
 
-void getPackegeAddress(char *address) {
+void getPackageAddress(char *address) {
     printf("Enter package address: ");
     fgets(address, 99, stdin);
     clearNL(address);
@@ -45,3 +45,4 @@ void getPackageStatus(char *status) {
     clearNL(status);
     clearBuffor();
 }
+
