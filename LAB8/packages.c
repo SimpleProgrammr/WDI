@@ -32,19 +32,23 @@ int main() {
         printf("1. AddPackage()\n");
         printf("2. FindPackageByID()\n");
         printf("3. RemovePackageByID()\n");
+        printf("4. UpdatePackageStatus()\n");
         printf("0. Exit\n");
 
         char c = getchar();
         switch (c) {
             case '1':
-                main_head = AddPackage(main_head);
+                main_head = addPackage(main_head);
                 break;
             case '2':
-                printPackageInfo(FindPackage(main_head, getPackageID()));
+                printPackageInfo(findPackage(main_head, getPackageID()));
                 break;
-                case '3':
+            case '3':
                 main_head = removePackage(main_head, getPackageID());
                 printAllPackages(main_head);
+                break;
+            case '4':
+                updatePackageStatus(findPackage(main_head, getPackageID()));
                 break;
             case '0':
                 run = false;

@@ -22,7 +22,7 @@ typedef struct Node {
 
 static Node *main_head = NULL;
 
-Node * FindPackage(Node * HEAD, int id) {
+Node * findPackage(Node * HEAD, int id) {
     if (HEAD == NULL) {
         PostErrorMsg("No package registerted!\n");
         return NULL;
@@ -31,7 +31,7 @@ Node * FindPackage(Node * HEAD, int id) {
         return HEAD;
     }
     if (HEAD->next != NULL) {
-        Node * temp = FindPackage(HEAD->next, id);
+        Node * temp = findPackage(HEAD->next, id);
         if ( temp != NULL) {
             return temp;
         }
@@ -39,7 +39,7 @@ Node * FindPackage(Node * HEAD, int id) {
     return NULL;
 }
 
-Node * FindPackageNoLog(Node * HEAD, int id) {
+Node * findPackageNoLog(Node * HEAD, int id) {
     if (HEAD == NULL) {
         return NULL;
     }
@@ -47,7 +47,7 @@ Node * FindPackageNoLog(Node * HEAD, int id) {
         return HEAD;
     }
     if (HEAD->next != NULL) {
-        Node * temp = FindPackage(HEAD->next, id);
+        Node * temp = findPackage(HEAD->next, id);
         if ( temp != NULL) {
             return temp;
         }
@@ -55,14 +55,14 @@ Node * FindPackageNoLog(Node * HEAD, int id) {
     return NULL;
 }
 
-Node *AddPackage(Node *HEAD) {
+Node *addPackage(Node *HEAD) {
     Node *newNode = calloc(1, sizeof(Node));
     if (newNode == NULL) {
         ERROR("Memory allocation error",1);
     }
     while (1) {
         newNode->package.id = getPackageID();
-        if (FindPackageNoLog(HEAD, newNode->package.id) != NULL) {
+        if (findPackageNoLog(HEAD, newNode->package.id) != NULL) {
             printf("Package with this ID already exist.\n");
             continue;
         }
@@ -119,4 +119,12 @@ Node * removePackage(Node * HEAD, int id) {
         HEAD->next = removePackage(HEAD->next, id);
     }
     return HEAD;
+}
+
+void updatePackageStatus(Node * HEAD) {
+    if (HEAD == NULL) {
+        PostErrorMsg("No such package in system!\n");
+    }
+    getPackageStatus(HEAD->package.status);
+    printAllPackages(main_head);
 }
