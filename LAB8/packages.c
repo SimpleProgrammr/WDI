@@ -34,6 +34,7 @@ int main() {
         printf("3. RemovePackageByID()\n");
         printf("4. UpdatePackageStatus()\n");
         printf("5. GetShippingRaport()\n");
+        printf("6. PrintAllPackages()\n");
         printf("0. Exit\n");
 
         char c = getc(stdin);
@@ -54,6 +55,8 @@ int main() {
             case '5':
                 getShippingRaport(main_head);
                 break;
+            case '6':
+                printAllPackages(main_head);
             case '0':
                 run = false;
                 break;
