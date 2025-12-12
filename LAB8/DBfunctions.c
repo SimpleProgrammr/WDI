@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+
 extern double getPackageWeight();
 extern int getPackageID();
 extern void ERROR(char*, int);
@@ -124,7 +126,32 @@ Node * removePackage(Node * HEAD, int id) {
 void updatePackageStatus(Node * HEAD) {
     if (HEAD == NULL) {
         PostErrorMsg("No such package in system!\n");
+        return;
     }
     getPackageStatus(HEAD->package.status);
     printAllPackages(main_head);
+}
+
+void getShippingRaport(Node * HEAD) {
+    static char pTop = 't';
+    pTop = 't';
+    if (HEAD == NULL) {
+        PostErrorMsg("No such package in system!\n");
+        return;
+    }
+    static int in_shipping = 0;
+    if (strcmp(HEAD->package.status, "shipping") == 0) {
+        in_shipping ++;
+    }
+    if (HEAD->next != NULL) {
+        getShippingRaport(HEAD->next);
+    }
+
+    if (pTop == 't') {
+        printf("--------------------Shipping: %d--------------------\n", in_shipping);
+        pTop = 'f';
+    }
+    if (strcmp(HEAD->package.status, "shipping") == 0)
+        printPackageInfo(HEAD);
+    in_shipping = 0;
 }

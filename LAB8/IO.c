@@ -45,4 +45,3 @@ void getPackageStatus(char *status) {
     clearNL(status);
     clearBuffor();
 }
-

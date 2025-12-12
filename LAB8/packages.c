@@ -33,9 +33,10 @@ int main() {
         printf("2. FindPackageByID()\n");
         printf("3. RemovePackageByID()\n");
         printf("4. UpdatePackageStatus()\n");
+        printf("5. GetShippingRaport()\n");
         printf("0. Exit\n");
 
-        char c = getchar();
+        char c = getc(stdin);
         switch (c) {
             case '1':
                 main_head = addPackage(main_head);
@@ -49,6 +50,9 @@ int main() {
                 break;
             case '4':
                 updatePackageStatus(findPackage(main_head, getPackageID()));
+                break;
+            case '5':
+                getShippingRaport(main_head);
                 break;
             case '0':
                 run = false;
