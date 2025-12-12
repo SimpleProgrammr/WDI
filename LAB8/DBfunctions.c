@@ -20,11 +20,27 @@ typedef struct Node {
     struct Node *next;
 }Node ;
 
-static Node *head = NULL;
+static Node *main_head = NULL;
 
 Node * FindPackage(Node * HEAD, int id) {
-    if (head == NULL) {
+    if (HEAD == NULL) {
         PostErrorMsg("No package registerted!\n");
+        return NULL;
+    }
+    if (HEAD->package.id == id) {
+        return HEAD;
+    }
+    if (HEAD->next != NULL) {
+        Node * temp = FindPackage(HEAD->next, id);
+        if ( temp != NULL) {
+            return temp;
+        }
+    }
+    return NULL;
+}
+
+Node * FindPackageNoLog(Node * HEAD, int id) {
+    if (HEAD == NULL) {
         return NULL;
     }
     if (HEAD->package.id == id) {
@@ -46,7 +62,7 @@ Node *AddPackage(Node *HEAD) {
     }
     while (1) {
         newNode->package.id = getPackageID();
-        if (FindPackage(HEAD, newNode->package.id) != NULL) {
+        if (FindPackageNoLog(HEAD, newNode->package.id) != NULL) {
             printf("Package with this ID already exist.\n");
             continue;
         }
@@ -80,8 +96,19 @@ void printPackageInfo(Node * HEAD) {
     printf("Package Status: %s\n", HEAD->package.status);
 }
 
-Node * removePackage(Node * HEAD, int id) {
+    Node * removePackage(Node * HEAD, int id) {
     if (HEAD == NULL) {
         PostErrorMsg("No package in system!\n");
+        return NULL;
     }
+    if (HEAD->package.id == id) {
+        Node * temp = HEAD;
+        HEAD = HEAD->next;
+        free(temp);
+        printf("Package %d removed.\n", id);
+        return HEAD;
+    }if (HEAD->next != NULL) {
+        HEAD->next = removePackage(HEAD->next, id);
+    }
+    return HEAD;
 }
