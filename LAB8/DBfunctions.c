@@ -90,13 +90,21 @@ void printPackageInfo(Node * HEAD) {
     if (HEAD == NULL) {
         PostErrorMsg("No such package in system!\n");
     }
+    printf("---------------------------------------------------\n");
     printf("Package ID: %d\n", HEAD->package.id);
     printf("Package Weight: %f\n", HEAD->package.weight);
     printf("Package Address: %s\n", HEAD->package.address);
-    printf("Package Status: %s\n", HEAD->package.status);
+    printf("Package Status: %s\n\n", HEAD->package.status);
 }
 
-    Node * removePackage(Node * HEAD, int id) {
+void printAllPackages(Node * HEAD) {
+    if (HEAD->next != NULL) {
+        printAllPackages(HEAD->next);
+    }
+    printPackageInfo(HEAD);
+}
+
+Node * removePackage(Node * HEAD, int id) {
     if (HEAD == NULL) {
         PostErrorMsg("No package in system!\n");
         return NULL;

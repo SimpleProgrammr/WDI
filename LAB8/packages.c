@@ -44,6 +44,7 @@ int main() {
                 break;
                 case '3':
                 main_head = removePackage(main_head, getPackageID());
+                printAllPackages(main_head);
                 break;
             case '0':
                 run = false;
