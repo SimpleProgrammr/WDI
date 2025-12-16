@@ -20,11 +20,11 @@ typedef struct {
 typedef struct Node {
     PACKAGE package;
     struct Node *next;
-}Node ;
+}NODE ;
 
-static Node *main_head = NULL;
+NODE *main_head = NULL;
 
-Node * findPackage(Node * HEAD, int id) {
+NODE * findPackage(NODE * HEAD, int id) {
     if (HEAD == NULL) {
         PostErrorMsg("No package registerted!\n");
         return NULL;
@@ -33,7 +33,7 @@ Node * findPackage(Node * HEAD, int id) {
         return HEAD;
     }
     if (HEAD->next != NULL) {
-        Node * temp = findPackage(HEAD->next, id);
+        NODE * temp = findPackage(HEAD->next, id);
         if ( temp != NULL) {
             return temp;
         }
@@ -41,7 +41,7 @@ Node * findPackage(Node * HEAD, int id) {
     return NULL;
 }
 
-Node * findPackageNoLog(Node * HEAD, int id) {
+NODE * findPackageNoLog(NODE * HEAD, int id) {
     if (HEAD == NULL) {
         return NULL;
     }
@@ -49,7 +49,7 @@ Node * findPackageNoLog(Node * HEAD, int id) {
         return HEAD;
     }
     if (HEAD->next != NULL) {
-        Node * temp = findPackage(HEAD->next, id);
+        NODE * temp = findPackage(HEAD->next, id);
         if ( temp != NULL) {
             return temp;
         }
@@ -57,8 +57,8 @@ Node * findPackageNoLog(Node * HEAD, int id) {
     return NULL;
 }
 
-Node *addPackage(Node *HEAD) {
-    Node *newNode = calloc(1, sizeof(Node));
+NODE *addPackage(NODE *HEAD) {
+    NODE *newNode = calloc(1, sizeof(NODE));
     if (newNode == NULL) {
         ERROR("Memory allocation error",1);
     }
@@ -80,7 +80,7 @@ Node *addPackage(Node *HEAD) {
     return HEAD;
 }
 
-void freeNodes(Node * HEAD) {
+void freeNodes(NODE * HEAD) {
     if (HEAD->next != NULL) {
         freeNodes(HEAD->next);
     }
@@ -88,7 +88,7 @@ void freeNodes(Node * HEAD) {
     free(HEAD);
 }
 
-void printPackageInfo(Node * HEAD) {
+void printPackageInfo(NODE * HEAD) {
     if (HEAD == NULL) {
         PostErrorMsg("No such package in system!\n");
     }
@@ -99,20 +99,20 @@ void printPackageInfo(Node * HEAD) {
     printf("Package Status: %s\n\n", HEAD->package.status);
 }
 
-void printAllPackages(Node * HEAD) {
+void printAllPackages(NODE * HEAD) {
     if (HEAD->next != NULL) {
         printAllPackages(HEAD->next);
     }
     printPackageInfo(HEAD);
 }
 
-Node * removePackage(Node * HEAD, int id) {
+NODE * removePackage(NODE * HEAD, int id) {
     if (HEAD == NULL) {
         PostErrorMsg("No package in system!\n");
         return NULL;
     }
     if (HEAD->package.id == id) {
-        Node * temp = HEAD;
+        NODE * temp = HEAD;
         HEAD = HEAD->next;
         free(temp);
         printf("Package %d removed.\n", id);
@@ -123,7 +123,7 @@ Node * removePackage(Node * HEAD, int id) {
     return HEAD;
 }
 
-void updatePackageStatus(Node * HEAD) {
+void updatePackageStatus(NODE * HEAD) {
     if (HEAD == NULL) {
         PostErrorMsg("No such package in system!\n");
         return;
@@ -132,7 +132,7 @@ void updatePackageStatus(Node * HEAD) {
     printAllPackages(main_head);
 }
 
-void getShippingRaport(Node * HEAD) {
+void getShippingRaport(NODE * HEAD) {
     static char pTop = 't';
     pTop = 't';
     if (HEAD == NULL) {

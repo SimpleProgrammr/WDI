@@ -3,13 +3,15 @@
 #include "errorHandler.c"
 #include "IO.c"
 
-Node * debugAdd(Node* HEAD, int id, double weight) {
-    Node *newNode = calloc(1, sizeof(Node));
+NODE * debugAdd(NODE* HEAD, int id, double weight) {
+    NODE *newNode = calloc(1, sizeof(NODE));
     if (newNode == NULL) {
         ERROR("Memory allocation error",1);
     }
     newNode->package.id = id;
     newNode->package.weight = weight;
+    memcpy(newNode->package.address, "Fuck off", 100*sizeof(char));
+    memcpy(newNode->package.status, "Bitch", 20*sizeof(char));
 
     newNode->next = HEAD;
     HEAD = newNode;
@@ -26,8 +28,7 @@ int main() {
     main_head = debugAdd(main_head, 4, -2);
     main_head = debugAdd(main_head, 5, -3);
 
-    bool run = true;
-    while (run) {
+    while (1) {
         system("clear");
         printf("1. AddPackage()\n");
         printf("2. FindPackageByID()\n");
@@ -57,13 +58,17 @@ int main() {
                 break;
             case '6':
                 printAllPackages(main_head);
-            case '0':
-                run = false;
                 break;
+            case '0':
+                freeNodes(main_head);
+                exit(0);
             default:
                 break;
         }
+
+        printf("Click ENTER to continue...\n");
+        getchar();
     }
 
-    freeNodes(main_head);
 }
+

@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+
 void ERROR(char * msg, int code) {
     fprintf(stderr, "%s\n", msg);
     exit(code);
