@@ -3,7 +3,7 @@
 
 int main(int argc, char *argv[]) {
     if (argc < 4) {
-        fprintf(stderr, "Usage: filter_text <input_file> <output_file> <max_value>\n");
+        fprintf(stderr, "Usage: filter_text <input_file> <output_file> <min_value>\n");
         exit(1);
     }
     FILE *data = fopen(argv[1], "r");
