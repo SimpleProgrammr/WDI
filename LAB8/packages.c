@@ -48,9 +48,11 @@ int cli_main() {
                 break;
             case '5':
                 getShippingRaport(main_head);
+                getchar();
                 break;
             case '6':
                 printAllPackages(main_head);
+                getchar();
                 break;
             case '0':
                 freeNodes(main_head);
@@ -61,7 +63,7 @@ int cli_main() {
 
         printf("Click ENTER to continue...\n");
         getchar();
-        getchar();
+
     }
 
 }
