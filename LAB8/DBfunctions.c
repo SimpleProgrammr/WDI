@@ -100,6 +100,10 @@ void printPackageInfo(NODE * HEAD) {
 }
 
 void printAllPackages(NODE * HEAD) {
+    if (HEAD == NULL) {
+        PostErrorMsg("No package in system!\n");
+        return;
+    }
     if (HEAD->next != NULL) {
         printAllPackages(HEAD->next);
     }

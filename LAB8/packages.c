@@ -61,6 +61,7 @@ int cli_main() {
 
         printf("Click ENTER to continue...\n");
         getchar();
+        getchar();
     }
 
 }
