@@ -1,4 +1,5 @@
 #include <stdbool.h>
+#include <stdlib.h>
 #include "DBfunctions.c"
 #include "errorHandler.c"
 #include "IO.c"
@@ -19,15 +20,7 @@ NODE * debugAdd(NODE* HEAD, int id, double weight) {
     return HEAD;
 }
 
-
-int main() {
-
-    main_head = debugAdd(main_head, 1, 1);
-    main_head = debugAdd(main_head, 2, 0);
-    main_head = debugAdd(main_head, 3, -1);
-    main_head = debugAdd(main_head, 4, -2);
-    main_head = debugAdd(main_head, 5, -3);
-
+int cli_main() {
     while (1) {
         system("clear");
         printf("1. AddPackage()\n");
@@ -72,3 +65,6 @@ int main() {
 
 }
 
+int main() {
+    cli_main();
+}
